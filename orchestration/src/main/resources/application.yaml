@@ -1,0 +1,40 @@
+
+mainClassName: com.saga.presenter.api.KotlinSagaApllication
+
+spring:
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      properties:
+        spring.json.trusted.packages: "*"
+  cloud:
+    stream:
+      kafka:
+        binder:
+          auto-create-topics: true
+          consumer-properties:
+            key.deserializer: org.apache.kafka.common.serialization.StringDeserializer
+            value.deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+            max.poll.records: 10
+            spring.json.trusted.packages: "*"
+          producer-properties:
+            key.serializer: org.apache.kafka.common.serialization.StringSerializer
+            value.serializer: org.springframework.kafka.support.serializer.JsonSerializer
+      function:
+        definition: orchestrationSendOrder;inventoryConsumer;orderToInventory;orchestrationReceiveOrder
+      bindings:
+        orchestrationSendOrder-out-0:
+          destination: order_create_topic
+        orderToInventory-in-0:
+          destination: order_create_topic
+          group: order-consumer-group
+        orderToInventory-out-0:
+          destination: inventory_consumer_topic
+        inventoryConsumer-in-0:
+          destination: inventory_consumer_topic
+          group: inventory-consumer-group
+        inventoryConsumer-out-0:
+          destination: saga_consumer_topic
+        orchestrationReceiveOrder-in-0:
+          destination: saga_consumer_topic
+          group: saga_consumer_topic
