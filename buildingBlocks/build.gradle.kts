@@ -4,8 +4,10 @@ plugins {
     val kotlinVersion = "1.8.22"
     id("idea")
     kotlin("jvm") version kotlinVersion
-    kotlin("plugin.spring") version kotlinVersion
 }
+
+group = "com.payments.buildingBlock"
+version = "1.0.0"
 
 java {
     sourceCompatibility = JavaVersion.VERSION_17
@@ -16,12 +18,8 @@ repositories {
 }
 
 dependencies {
-    implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
 }
-
-extra["springCloudVersion"] = "2022.0.4"
-
 
 tasks.withType<KotlinCompile> {
     kotlinOptions {

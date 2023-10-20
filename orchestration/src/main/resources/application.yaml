@@ -1,6 +1,4 @@
 
-mainClassName: com.saga.presenter.api.KotlinSagaApllication
-
 spring:
   kafka:
     bootstrap-servers: localhost:9092
