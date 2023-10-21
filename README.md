@@ -12,9 +12,9 @@ sh kafka-topics.sh --create --topic order_create_topic --bootstrap-server localh
 
 linux
 
-kafka-console-consumer --bootstrap-server localhost:9092 --topic order_create_topic --from-beginning
+kafka-console-consumer --bootstrap-server localhost:9092 --topic order_create_topic --from-beginning --property value.deserializer=org.springframework.kafka.support.serializer.JsonDeserializer
 
-kafka-console-consumer --bootstrap-server localhost:9092 --topic produceMessage-out-0
+kafka-console-consumer --bootstrap-server localhost:9092 --topic saga_consumer_topic
 
 kafka-topics --list --bootstrap-server localhost:9092
 

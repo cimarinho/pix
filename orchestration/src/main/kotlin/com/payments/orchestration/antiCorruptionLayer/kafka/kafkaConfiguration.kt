@@ -9,12 +9,12 @@ import reactor.core.publisher.Flux
 import java.util.function.Supplier
 
 @Configuration
-class kafkaConfiguration constructor(
+class kafkaConfiguration (
     private val balanceValidateSendEvent: BalanceValidateSendEvent,
 ) {
 
     @Bean
-    fun orchestrationSendOrder(): Supplier<Flux<Message<BalanceValidateEvent>>> = Supplier {
-        balanceValidateSendEvent.getProducer().asFlux()
+    fun orchestrationSendPix(): Supplier<Flux<Message<BalanceValidateEvent>>> = Supplier {
+        balanceValidateSendEvent.getFlow().asFlux()
     }
 }

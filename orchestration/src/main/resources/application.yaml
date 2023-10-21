@@ -19,20 +19,12 @@ spring:
             key.serializer: org.apache.kafka.common.serialization.StringSerializer
             value.serializer: org.springframework.kafka.support.serializer.JsonSerializer
       function:
-        definition: orchestrationSendOrder;inventoryConsumer;orderToInventory;orchestrationReceiveOrder
+        definition: orchestrationSendPix;createPix
       bindings:
-        orchestrationSendOrder-out-0:
-          destination: order_create_topic
-        orderToInventory-in-0:
-          destination: order_create_topic
-          group: order-consumer-group
-        orderToInventory-out-0:
-          destination: inventory_consumer_topic
-        inventoryConsumer-in-0:
-          destination: inventory_consumer_topic
-          group: inventory-consumer-group
-        inventoryConsumer-out-0:
+        orchestrationSendPix-out-0:
+          destination: pix_create_topic
+        createPix-in-0:
+          destination: pix_create_topic
+          group: pix-consumer-group
+        createPix-out-0:
           destination: saga_consumer_topic
-        orchestrationReceiveOrder-in-0:
-          destination: saga_consumer_topic
-          group: saga_consumer_topic

@@ -19,6 +19,10 @@ repositories {
 
 dependencies {
     implementation("org.jetbrains.kotlin:kotlin-reflect")
+
+    implementation("org.springframework:spring-messaging:6.0.13")
+
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor:1.7.3")
 }
 
 tasks.withType<KotlinCompile> {

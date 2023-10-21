@@ -33,7 +33,7 @@ sourceSets {
 dependencies {
 	implementation("org.javamoney:moneta:1.4.2")
 	implementation(project(":buildingBlocks"))
-
+	implementation(project(":pix"))
 	implementation("org.springframework.boot:spring-boot-starter-actuator")
 
 	implementation("org.springframework.boot:spring-boot-starter-webflux")
@@ -54,12 +54,6 @@ tasks.bootJar {
 	mainClass = "com.payments.orchestration.OrchestrationApllication"
 }
 
-
-//tasks.jar {
-//	manifest {
-//		attributes["Main-Class"] = "com.payments.orchestration.OrchestrationApllication"
-//	}
-//}
 
 dependencyManagement {
 	imports {

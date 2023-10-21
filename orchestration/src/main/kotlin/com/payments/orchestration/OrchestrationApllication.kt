@@ -2,9 +2,10 @@ package com.payments.orchestration
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
+import org.springframework.context.annotation.ComponentScan
 
 @SpringBootApplication
-//@ComponentScan(basePackages = ["com.saga.presenter","com.saga.order","com.saga.inventory","com.saga.orchestration"])
+@ComponentScan(basePackages = ["com.payments.orchestration","com.payments.pix"])
 open class KotlinSagaApllication
 
 fun main() {

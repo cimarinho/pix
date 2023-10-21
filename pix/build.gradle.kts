@@ -3,9 +3,9 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 plugins {
 	val kotlinVersion = "1.8.22"
 	id("idea")
+	id("io.spring.dependency-management") version "1.1.3"
 	kotlin("jvm") version kotlinVersion
 	kotlin("plugin.spring") version kotlinVersion
-	id("io.spring.dependency-management") version "1.1.3"
 }
 
 group = "com.payments.pix"
@@ -33,9 +33,7 @@ dependencies {
 	implementation("org.javamoney:moneta:1.4.2")
 	implementation(project(":buildingBlocks"))
 
-	implementation("org.springframework.boot:spring-boot-starter-actuator")
 
-	implementation("org.springframework.boot:spring-boot-starter-webflux")
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 	implementation("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.12.0")
 

@@ -4,4 +4,5 @@ import java.util.*
 
 interface Event {
     val correlationId: UUID
+    fun getCorrelationId(): String = correlationId.toString()
 }
