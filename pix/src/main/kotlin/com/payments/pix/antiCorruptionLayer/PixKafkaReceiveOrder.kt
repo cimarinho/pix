@@ -25,7 +25,9 @@ class PixKafkaReceiveOrder(
                     result.toEvent()
                 }
             }.map {
-                MessageBuilder.withPayload(it).build()
+                MessageBuilder.withPayload(it)
+                    .setHeader("correlation_id",it.getCorrelationId())
+                    .build()
             }
         }
 

@@ -9,7 +9,7 @@ class PixCreateCommandHandler(
 ) : QueryHandler<PixCreateQuery, PixCreateResult> {
 
     override fun handle(command: PixCreateQuery) : PixCreateResult {
-        println("InventoryCommandHandler == $command")
+        println("PixCreateCommandHandler == $command")
         return PixCreateResult(
             name = command.name,
             quantity = command.quantity,
