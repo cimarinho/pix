@@ -28,3 +28,6 @@ spring:
           group: pix-consumer-group
         createPix-out-0:
           destination: saga_consumer_topic
+        orchestrationReceivePix-in-0:
+          destination: saga_consumer_topic
+          group: saga_consumer_topic
